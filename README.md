@@ -17,7 +17,7 @@ allprojects {
 }
 ```
 
-then add dependencies
+Then add dependencies
 
 ```
 implementation("com.google.protobuf:protobuf-java:3.6.1")
@@ -39,7 +39,7 @@ implementation("io.arcblock.walletkit:walletkit:0.4.15") {
 }
 ```
 
-add packagingOptions
+Add packagingOptions
 
 > This will fix INSTALL_FAILED_NO_MATCHING_ABIS error
 
