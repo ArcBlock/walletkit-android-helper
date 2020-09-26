@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+  compileSdkVersion 30
+  buildToolsVersion "30.0.2"
+
+  defaultConfig {
+    applicationId "com.arcblock.whepler"
+    minSdkVersion 21
+    targetSdkVersion 30
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  packagingOptions {
+    exclude 'lib/x86_64/darwin/libscrypt.dylib'
+    exclude 'lib/x86_64/freebsd/libscrypt.so'
+    exclude 'lib/x86_64/linux/libscrypt.so'
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: "libs", include: ["*.jar"])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'androidx.core:core-ktx:1.3.1'
+  implementation 'androidx.appcompat:appcompat:1.2.0'
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+  implementation("com.google.protobuf:protobuf-java:3.6.1")
+  implementation("com.arcblock.corekit:absdkcorekit:0.4.1"){
+    exclude module: "jsr305"
+    exclude module: "jsr250-api"
+    exclude module: 'jackson-core'
+    exclude module: 'jackson-annotations'
+    exclude module: 'jackson-databind'
+  }
+  implementation("io.arcblock.walletkit:chainkit:0.4.14")
+  implementation("io.arcblock.walletkit:walletkit:0.4.15") {
+    exclude module: 'protobuf-lite'
+    exclude group: 'com.google.protobuf'
+    exclude module: 'jackson-core'
+    exclude module: 'jackson-annotations'
+    exclude module: 'jackson-databind'
+    exclude group: 'org.ow2.asm'
+  }
+}
