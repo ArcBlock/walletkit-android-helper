@@ -8,12 +8,12 @@ import com.apollographql.apollo.rx2.Rx2Apollo
 import com.arcblock.corekit.ABCoreKitClient
 import com.arcblock.wallet.appcommonsdk.SendTxMutation
 import com.arcblock.whepler.utils.ArcSenderUtils
+import com.arcblock.whepler.utils.IdGenerator
 import com.arcblock.whepler.utils.WalletUtils
 import forge_abi.Declare
 import io.arcblock.chainkit.ArcWalletClientUtils
 import io.arcblock.protobuf.TypeUrls
 import io.arcblock.walletkit.did.DidUtils
-import io.arcblock.walletkit.did.IdGenerator
 import io.arcblock.walletkit.did.KeyType.ED25519
 import io.arcblock.walletkit.utils.address
 import io.reactivex.android.schedulers.AndroidSchedulers
